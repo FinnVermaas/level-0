@@ -2,18 +2,22 @@ PImage mustache;
 
 void setup() {
   // 1. Get a photo of your friends, and drop it onto this sketch.
-  PImage friends = loadImage("friend 2.jpg");  // 2. Change this to match the name of your photo. 
+  PImage friends = loadImage("friend.jpg");  // 2. Change this to match the name of your photo. 
+  friends.resize(friends.width*2, friends.height*2);
   size(friends.width, friends.height);
   // 3. Set your friends as the background. 
-
+  background(friends);
   // 4. Find an image of a mustache, and drop it onto this sketch. 
-  mustache = loadImage("tash.png"); // 5. Change this to match your file name.
+  mustache = loadImage("Moustache_Handlebar_Hold_Up_Print_Shopify_Ecommerce_Blog.png"); // 5. Change this to match your file name.
 }
 
 void draw() {
   // 8. Only draw the mustache when the mouse is pressed.
-
-  // 6. Add the mustache using: image(mustache, xPosition, yPosition)
+  if (mousePressed)
+  {
+    // 6. Add the mustache using: image(mustache, xPosition, yPosition)
+    image(mustache, mouseX, mouseY);
+  }
 
   // 7. Change the line above so that the mustache moves with the mouse.
 
