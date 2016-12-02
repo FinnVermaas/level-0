@@ -7,6 +7,7 @@ void setup()
   image(face, 0, 0);
 }
 int oldMouseX =0;
+int oldmouseY =0;
 void draw()
 {
   if (mouseX != oldMouseX)
@@ -14,8 +15,28 @@ void draw()
     oldMouseX = mouseX;
     fill(random(255), random(255), random(255));
     ellipse(549, 225, 70, 70);
+    int pupilsensor=oldMouseX;
+    if(pupilsensor > 573)
+    {
+      pupilsensor =573;
+    }
+    if(pupilsensor <  527)
+    {
+     pupilsensor =527; 
+    }
+    oldmouseY =mouseY;
+int ysensor=oldmouseY;
+if (ysensor > 247)
+{
+ ysensor=247; 
+}
+if (ysensor < 203)
+{
+ ysensor =  203;
+}
     fill(0,0,0);
-    ellipse(549,225,25,25);
+    ellipse(pupilsensor,ysensor,25,25);
+      
   }
   if(mousePressed)
   {
