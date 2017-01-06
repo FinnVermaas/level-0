@@ -2,46 +2,36 @@
 
 void setup()
 {
+  iD=iR*2;
   PImage face = loadImage("face.jpg");
   size(face.width, face.height);
   image(face, 0, 0);
 }
-int oldMouseX =0;
-int oldmouseY =0;
+int iD=0;
+int iR= 35;
+int iY=225;
+int iX=549;
 void draw()
 {
-  if (mouseX != oldMouseX)
+  fill(random(255), random(255), random(255));
+  ellipse(iX, iY, iD, iD);    
+  fill(0, 0, 0);
+ 
+  int x=iX -mouseX;
+  int y = iY - mouseY;
+  double r = sqrt(x*x+y*y);
+  if(r<iR-12.5)
   {
-    oldMouseX = mouseX;
-    fill(random(255), random(255), random(255));
-    ellipse(549, 225, 70, 70);
-    int pupilsensor=oldMouseX;
-    if(pupilsensor > 573)
-    {
-      pupilsensor =573;
-    }
-    if(pupilsensor <  527)
-    {
-     pupilsensor =527; 
-    }
-    oldmouseY =mouseY;
-int ysensor=oldmouseY;
-if (ysensor > 247)
-{
- ysensor=247; 
-}
-if (ysensor < 203)
-{
- ysensor =  203;
-}
-    fill(0,0,0);
-    ellipse(pupilsensor,ysensor,25,25);
-      
+   ellipse(mouseX, mouseY, 25, 25);  
   }
-  if(mousePressed)
+  else
   {
-//    SoundFile file = new SoundFile("scary.mp3");
-//    file.play();
+    
+  }
+  if (mousePressed)
+  {
+    //    SoundFile file = new SoundFile("scary.mp3");
+    //    file.play();
   }
 }
 
