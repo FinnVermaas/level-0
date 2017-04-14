@@ -56,11 +56,11 @@ void draw() {
     leftScore=leftScore+1;
   }
   if (leftScore==10) {
-    println("green wins!"); 
+    println("red wins!"); 
     Xvelocity=0;
     Yvelocity=0;
     ballX=100;
-    text("Green Wins!!",950,450);
+    text("green Wins!!",950,450);
   }
   if (ballX<left) {
     rightScore=rightScore+1;
