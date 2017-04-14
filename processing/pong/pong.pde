@@ -1,4 +1,6 @@
 int paddleTop=450;
+int leftScore=0;
+int rightScore=0;
 int paddleTop2=450;
 int paddleside=100;
 int paddleside2=100;
@@ -16,17 +18,25 @@ int ballX=950;
 int ballY=450;
 int left=sideWalls;
 int right=1900;
-int Xvelocity=-6;
-int Yvelocity=-5;
+int Xvelocity=-7;
+int Yvelocity=-6;
+PFont f;
 void setup() {
   size(1900, 900);
+  f=createFont("Arial", 90, true);
+  textFont(f,90);
 }
 void draw() {
   background(200, 255, 255);
   rect(wallX, wallY, sideWalls, topWalls);
+  fill(0,255,0);
   rect(paddle1left, paddleTop, 15, paddleside);
-  
+  fill(0);
+  text(""+rightScore, 1800, 100);
+  text(""+leftScore,100,100);
+  fill(255, 0, 0);
   rect(paddle2left, paddleTop2, 15, paddleside2);
+  fill(0,0,255);
   ellipse(ballX, ballY, ballWidth, ballHieght);
   ballX=ballX+Xvelocity;
   ballY=ballY+Yvelocity;
@@ -39,15 +49,35 @@ void draw() {
   if (ballY<top) {
     Yvelocity=-1*Yvelocity;
   }
-  if(ballY>bottom){
+  if (ballY>bottom) {
     Yvelocity=-1*Yvelocity;
   }
-  
-  if(ballX<paddle1left+15 && ballY>paddleTop && ballY<paddleTop+paddleside ){
+  if (ballX>right) {
+    leftScore=leftScore+1;
+  }
+  if (leftScore==10) {
+    println("green wins!"); 
+    Xvelocity=0;
+    Yvelocity=0;
+    ballX=100;
+    text("Green Wins!!",950,450);
+  }
+  if (ballX<left) {
+    rightScore=rightScore+1;
+  }
+  if (rightScore==10) {
+    println("red wins!");  
+    Xvelocity=0;
+    Yvelocity=0;
+    ballX=100;
+    text("Red Wins!!",950,450);
+    
+  }
+  if (ballX<paddle1left+15 && ballY>paddleTop && ballY<paddleTop+paddleside ) {
     Xvelocity=-1*Xvelocity;
   }
-  
-  if(ballX>paddle2left && ballY>paddleTop2 && ballY<paddleTop2+paddleside){
+
+  if (ballX>paddle2left && ballY>paddleTop2 && ballY<paddleTop2+paddleside) {
     Xvelocity=-1*Xvelocity;
   }
 }
