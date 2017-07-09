@@ -25,11 +25,10 @@ public static void main(String[] args) {
 	}
 	steeze.turn(120);
 	steeze.move(300);
-	steeze.
+	//steeze.
 }
 public static void drawShape(Robot steeze,int x,int y,int sides,int lenghth) {
 steeze.penUp();
 steeze.penDown();
 } 
-}
 }
